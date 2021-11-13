@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:gas_station_finder/services/services.dart';
 import 'package:geolocator/geolocator.dart';
-
-import 'location_service.dart';
 
 class StationList extends StatefulWidget {
   final Position initialPosition;
   final LocationService locationService;
+
   const StationList(
       {required this.initialPosition, required this.locationService, Key? key})
       : super(key: key);
+
   @override
   _StationListState createState() => _StationListState();
 }

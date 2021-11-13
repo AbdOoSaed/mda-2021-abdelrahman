@@ -1,10 +1,9 @@
-import 'package:geolocator/geolocator.dart';
-import 'package:mockito/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:gas_station_finder/location_access.dart';
-import 'package:gas_station_finder/location_service.dart';
+import 'package:gas_station_finder/screens/screens.dart';
+import 'package:gas_station_finder/services/location_service.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'location_access_test.mocks.dart';
@@ -33,6 +32,7 @@ void main() {
         position = pos;
       },
     )));
+    //tap Give permisson btn
     // TODO: Implement test.
     expect(position, null);
   });

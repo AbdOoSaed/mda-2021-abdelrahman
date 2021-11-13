@@ -4,7 +4,7 @@
 
 import 'dart:async' as _i4;
 
-import 'package:gas_station_finder/location_service.dart' as _i3;
+import 'package:gas_station_finder/services/location_service.dart' as _i3;
 import 'package:geolocator/geolocator.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
