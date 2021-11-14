@@ -13,6 +13,7 @@ dependencies:
   geolocator: ^7.7.1
   http: ^0.13.4
   flutter_screenutil: ^5.0.0+2
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:

@@ -6,6 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../utils/testable_widget.dart';
 import 'location_access_test.mocks.dart';
 
 @GenerateMocks([LocationService])
@@ -19,21 +20,39 @@ void main() {
       heading: 0,
       speed: 0,
       speedAccuracy: 0);
+
   testWidgets('Should return location if successful',
       (WidgetTester tester) async {
     final locationService = MockLocationService();
     when(locationService.getCurrentPosition())
         .thenAnswer((_) async => mockPosition);
     Position? position;
-    await tester.pumpWidget(MaterialApp(
-        home: LocationAccess(
-      locationService: locationService,
-      onSuccess: (Position pos) {
-        position = pos;
-      },
-    )));
-    //tap Give permisson btn
-    // TODO: Implement test.
+    await tester.pumpWidget(testableWidget(
+      child: LocationAccess(
+        locationService: locationService,
+        onSuccess: (Position pos) {
+          position = pos;
+        },
+      ),
+    ));
+    await tester.tap(find.byKey(const Key('locationAccessBtn')));
+    expect(position, mockPosition);
+  });
+  testWidgets('Should return null if not successful',
+      (WidgetTester tester) async {
+    final locationService = MockLocationService();
+    when(locationService.getCurrentPosition())
+        .thenAnswer((_) async => throw Null);
+    Position? position;
+    await tester.pumpWidget(testableWidget(
+      child: LocationAccess(
+        locationService: locationService,
+        onSuccess: (Position pos) {
+          position = pos;
+        },
+      ),
+    ));
+    await tester.tap(find.byKey(const Key('locationAccessBtn')));
     expect(position, null);
   });
 }

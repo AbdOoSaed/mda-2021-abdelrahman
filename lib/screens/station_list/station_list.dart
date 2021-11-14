@@ -6,9 +6,11 @@ class StationList extends StatefulWidget {
   final Position initialPosition;
   final LocationService locationService;
 
-  const StationList(
-      {required this.initialPosition, required this.locationService, Key? key})
-      : super(key: key);
+  const StationList({
+    required this.initialPosition,
+    required this.locationService,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _StationListState createState() => _StationListState();
