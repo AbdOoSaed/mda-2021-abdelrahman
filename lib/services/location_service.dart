@@ -44,6 +44,18 @@ class LocationService {
 
     return position;
   }
+
+  Duration getDurationTakenFromMeter(num meter) {
+    //TODO(Abdelrahman): write tests
+    //this is not real it is just an estimation
+
+    final kms = meter / 1000;
+
+    const kmsPerMin = 0.5; //30k per hour
+
+    final minsTaken = kms / kmsPerMin;
+    return Duration(minutes: minsTaken.toInt());
+  }
 }
 
 // geoLocator package not testable, all functions static so i made wrapper class
@@ -55,14 +67,14 @@ class GeoLocatorWrapper {
   /// Returns a [Future] indicating if the user allows the App to access the device's location.
   Future<LocationPermission> checkPermission() => Geolocator.checkPermission();
 
-  /// Calculates the initial bearing between two points
-  double bearing(
+  /// Calculates the distance between the supplied coordinates in meters.
+  double distanceBetween(
     double startLatitude,
     double startLongitude,
     double endLatitude,
     double endLongitude,
   ) =>
-      Geolocator.bearingBetween(
+      Geolocator.distanceBetween(
         startLatitude,
         startLongitude,
         endLatitude,
