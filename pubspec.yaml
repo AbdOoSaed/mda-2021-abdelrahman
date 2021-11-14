@@ -14,7 +14,7 @@ dependencies:
   http: ^0.13.4
   flutter_screenutil: ^5.0.0+2
   fluttertoast: ^8.0.8
-
+  flutter_dotenv: ^5.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -24,4 +24,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/.env
 
