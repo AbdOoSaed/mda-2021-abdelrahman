@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../utils/testable_widget.dart';
+import '../../utils/testable_widget.dart';
 import 'location_access_test.mocks.dart';
 
 @GenerateMocks([LocationService])
