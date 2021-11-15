@@ -1,6 +1,14 @@
 # Gas Station Finder
 This is the IMPARGO test task for the Product Engineer (Mobile) position.
 
+ ##
+
+ ### To protect HERE_API_KEY from leaking, I used the [.env](https://github.com/impargo/mda-2021-abdelrahman/blob/first_implementation/assets/.env.example) file
+
+```
+change assets/.env.example to assets/.env
+```
+
  ## web
 ![2021-11-15 03-36-01](https://user-images.githubusercontent.com/33700292/141709413-c4ddb237-4f1c-4f40-9b28-32510b72c1a0.gif)
 
@@ -8,6 +16,7 @@ This is the IMPARGO test task for the Product Engineer (Mobile) position.
 ![2021-11-15 03-49-51](https://user-images.githubusercontent.com/33700292/141710204-833ff774-d2d8-4035-a171-889e059dc5a7.gif)
 
 
+ ##
 
 One common problem for truck drivers on the road is that they need to find certain points-of-interest (POIs) in their proximity. For example they might search for the closest parking spot for the night or the next gas station. Let’s assume we want to build an app to retrieve and display all gas stations close to a user.
 
