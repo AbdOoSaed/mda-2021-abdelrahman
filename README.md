@@ -1,6 +1,14 @@
 # Gas Station Finder
 This is the IMPARGO test task for the Product Engineer (Mobile) position.
 
+ ## web
+![2021-11-15 03-36-01](https://user-images.githubusercontent.com/33700292/141709413-c4ddb237-4f1c-4f40-9b28-32510b72c1a0.gif)
+
+ ## android
+![2021-11-15 03-49-51](https://user-images.githubusercontent.com/33700292/141710204-833ff774-d2d8-4035-a171-889e059dc5a7.gif)
+
+
+
 One common problem for truck drivers on the road is that they need to find certain points-of-interest (POIs) in their proximity. For example they might search for the closest parking spot for the night or the next gas station. Let’s assume we want to build an app to retrieve and display all gas stations close to a user.
 
 The requirement is a mobile application (using flutter) where users can find the nearest gas stations based on their current location. No input is needed from the users other than a permission to view their current location. The nearby gas stations can be fetched using [HERE places API](https://developer.here.com/documentation/places/dev_guide/topics/explore-by-category.html). The results should also include the ETA from the users current location to each of the gas stations. You will find below the designs for the mobile app, including a Figma prototype.
