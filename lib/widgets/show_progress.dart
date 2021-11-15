@@ -1,6 +1,6 @@
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ShowProgress extends StatelessWidget {
@@ -8,10 +8,12 @@ class ShowProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Platform.isIOS
-          ? const CupertinoActivityIndicator()
-          : const CircularProgressIndicator(),
-    );
+    return Builder(builder: (_) {
+      return Center(
+        child:(defaultTargetPlatform == TargetPlatform.iOS)
+            ? const CupertinoActivityIndicator()
+            : const CircularProgressIndicator(),
+      );
+    });
   }
 }
