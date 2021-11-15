@@ -5,7 +5,7 @@ import 'package:gas_station_finder/data/repositories/repositories.dart';
 import 'package:gas_station_finder/screens/station_list/bloc/station_list_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockRepository extends Mock implements GasStationRepository {}
+class MockGasStationRepository extends Mock implements GasStationRepository {}
 
 class MockPetrolStationResModel extends Mock implements PetrolStationResModel {}
 
@@ -15,7 +15,7 @@ void main() {
     late MockPetrolStationResModel mockPetrolStationResModel;
 
     setUp(() {
-      gasStationRepository = MockRepository();
+      gasStationRepository = MockGasStationRepository();
       mockPetrolStationResModel = MockPetrolStationResModel();
     });
 
@@ -37,6 +37,20 @@ void main() {
         StationListState(
             model: mockPetrolStationResModel,
             status: StationListStatus.success),
+      ],
+    );
+
+    blocTest<StationListBloc, StationListState>(
+      'should emits [Station ListStatus.failure] when getGasStation throw',
+      setUp: () {
+        when(() => gasStationRepository.getGasStation(0, 0))
+            .thenThrow((_) async => '');
+      },
+      build: () => StationListBloc(repository: gasStationRepository),
+      act: (bloc) => bloc.add(GetGasStation(0, 0)),
+      expect: () => [
+        const StationListState(status: StationListStatus.loading),
+        const StationListState(status: StationListStatus.failure)
       ],
     );
   });
