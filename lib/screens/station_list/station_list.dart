@@ -55,14 +55,24 @@ class _StationListState extends State<StationList> {
           listener: (context, state) {},
           builder: (context, state) {
             if (state.status.isFailure) {
-              return Text(state.error ?? '').setCenter();
+              return Text(
+                state.error ?? '',
+                key: const Key('StationListFailure'),
+              ).setCenter();
             }
             if (state.status.isLoading) {
-              return const ShowProgress();
+              return const ShowProgress(key: Key('StationListLoading'));
             }
             if (state.status.isSuccess) {
-              final items = state.model!.results.items;
+              final items = state.model?.results?.items;
+              if (items == null) {
+                return const Text(
+                  'No Data!',
+                  key: Key('StationListSuccess'),
+                ).setCenter();
+              }
               return ListView.builder(
+                key: const Key('StationListSuccess'),
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   final item = items[index];
@@ -73,9 +83,8 @@ class _StationListState extends State<StationList> {
                   );
                 },
               );
-            } else {
-              return const SizedBox();
             }
+            return const SizedBox();
           },
         ));
   }

@@ -8,7 +8,7 @@ class PetrolStationResModel {
     required this.search,
   });
 
-  final Results results;
+  final Results? results;
   final Search search;
 
   factory PetrolStationResModel.fromRawJson(String str) =>
@@ -24,7 +24,7 @@ class PetrolStationResModel {
 class Results {
   Results({required this.items});
 
-  final List<Item> items;
+  final List<Item>? items;
 
   factory Results.fromRawJson(String str) => Results.fromJson(json.decode(str));
 
@@ -47,7 +47,9 @@ class Item {
   final String title;
   final num averageRating;
   final String vicinity;
+
   String get cleanedVicinity => vicinity.replaceAll('<br/>', ', ');
+
   String getETA(LocationService locationService) {
     final duration = locationService.getDurationTakenFromMeter(distance);
     final d = duration.toString().split(':'); //[hours, min, sec]

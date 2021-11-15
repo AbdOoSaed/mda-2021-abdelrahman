@@ -45,13 +45,12 @@ class LocationService {
     return position;
   }
 
-  Duration getDurationTakenFromMeter(num meter) {
-    //TODO(Abdelrahman): write tests
+  Duration getDurationTakenFromMeter(num meter,
+      {double kmsPerMin = 0.5 /*speed*/
+      }) {
     //this is not real it is just an estimation
 
     final kms = meter / 1000;
-
-    const kmsPerMin = 0.5; //30k per hour
 
     final minsTaken = kms / kmsPerMin;
     return Duration(minutes: minsTaken.toInt());

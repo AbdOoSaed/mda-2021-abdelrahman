@@ -36,10 +36,10 @@ class MockGeoLocatorWrapper extends _i1.Mock implements _i2.GeoLocatorWrapper {
                   _i4.LocationPermission.denied))
           as _i3.Future<_i4.LocationPermission>);
   @override
-  double bearing(double? startLatitude, double? startLongitude,
+  double distanceBetween(double? startLatitude, double? startLongitude,
           double? endLatitude, double? endLongitude) =>
       (super.noSuchMethod(
-          Invocation.method(#bearing,
+          Invocation.method(#distanceBetween,
               [startLatitude, startLongitude, endLatitude, endLongitude]),
           returnValue: 0.0) as double);
   @override
