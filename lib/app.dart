@@ -28,7 +28,9 @@ class MainApp extends StatelessWidget {
             brightness: Brightness.light,
             scaffoldBackgroundColor: Colors.white,
             primaryColor: const Color(0xffF8BA07),
-            accentColor: const Color(0xFF4A4A4A),
+            colorScheme: ThemeData.light().colorScheme.copyWith(
+                  secondary: const Color(0xFF4A4A4A),
+                ),
             progressIndicatorTheme: const ProgressIndicatorThemeData(
               color: Color(0xffF8BA07),
             ),

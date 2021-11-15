@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 class DioClient {
   // dio instance
@@ -33,7 +32,7 @@ class DioClient {
   }
 
   String _handleNetworkExceptions(dynamic exception, StackTrace stackTrace) {
-    if (kDebugMode) print('$exception/n$stackTrace');
+    // if (kDebugMode) print('$exception/n$stackTrace');
 
     if (exception is DioError) {
       if (exception.error is SocketException) {
